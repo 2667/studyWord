@@ -127,7 +127,7 @@
     
     nameAttributedString.yy_font = [UIFont systemFontOfSize:kWBCellNameFontSize];
     nameAttributedString.yy_color = user.mbrank>0?kWBCellNameOrangeColor:kWBCellNameNormalColor;
-    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(kWBCellNameWidth, 9999)];
+    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(kWBCellNameWidth, MAXFLOAT)];
     container.maximumNumberOfRows = 1;
     _nameTextLayout = [YYTextLayout layoutWithContainer:container text:nameAttributedString];
    
@@ -208,9 +208,10 @@
     
     NSMutableAttributedString *text = [self textWithStatus:_status isRetweet:NO fontSize:kWBCellTextFontSize textColor:kWBCellTextNormalColor];
 
-    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(kWBCellContentWidth, 1000000)];
+    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(kWBCellContentWidth, MAXFLOAT)];
 
     _titleTextLayout = [YYTextLayout layoutWithContainer:container text:text];
+    
     _titleHeight =  _titleTextLayout.lines.count * (text.yy_font.pointSize + text.yy_lineSpacing*2);
 }
 
